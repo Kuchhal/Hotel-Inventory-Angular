@@ -1,4 +1,6 @@
-<h1>Welcome to the {{HotelName}}</h1>
+<!-- <h1>Welcome to the {{HotelName}}</h1> -->
+
+<hinv-header></hinv-header>
 
 <div [hidden]="hiddenRooms">
     No. of rooms:
@@ -11,11 +13,14 @@
 <!-- <div *ngIf="selectedRoom">
   {{selectedRoom |json}}
 </div> -->
+<button (click)="addRoom()">Add Room</button>
 <div *ngIf="RoomDetails.AvailableRooms > 0">
     Room list:
-    <hinv-rooms-list [rooms] = "roomList"
-    (selectedRoom)="selectRoom($event)"></hinv-rooms-list>
+    <hinv-rooms-list [rooms] = "roomList" [title]="'Best List'"
+    (selectedRoom)="selectRoom($event)"
+    Title="Room List"></hinv-rooms-list>
 </div>
+
 <div *ngIf="RoomDetails.BookedRooms === RoomDetails.TotalNumberRooms">
     No Room available
 </div>
